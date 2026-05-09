@@ -15,10 +15,19 @@ license: mit
 > A Gemini-powered AI assistant for DevOps and SRE engineers — chat, explain commands, analyse logs, and generate runbooks.
 
 ![Python](https://img.shields.io/badge/Python-3.11+-blue?logo=python)
-![Gemini](https://img.shields.io/badge/Gemini-1.5_Flash-orange?logo=google)
+![Gemini](https://img.shields.io/badge/Gemini-2.5_Flash-orange?logo=google)
 ![GCP](https://img.shields.io/badge/Google_Cloud-ML_Engineer-blue?logo=googlecloud)
 ![Streamlit](https://img.shields.io/badge/Streamlit-UI-red?logo=streamlit)
 ![License](https://img.shields.io/badge/License-MIT-green)
+
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Hugging_Face-yellow?logo=huggingface)](https://reenu90-devops-ai-agent.hf.space)
+
+---
+
+## 🚀 Live Demo
+
+**Try it now — no install needed:**  
+👉 [reenu90-devops-ai-agent.hf.space](https://reenu90-devops-ai-agent.hf.space)
 
 ---
 
@@ -26,7 +35,7 @@ license: mit
 
 | Tool | Description |
 |---|---|
-| 💬 **AI Chat** | Ask anything about Kubernetes, GCP, Terraform, CI/CD — answers grounded with Google Search |
+| 💬 **AI Chat** | Ask anything about Kubernetes, GCP, Terraform, CI/CD — powered by Gemini 2.5 Flash |
 | 🖥️ **Command Explainer** | Paste any kubectl / terraform / docker / gcloud command → get a full plain-English breakdown |
 | 📋 **Log Analyser** | Paste raw logs → root cause, severity, and step-by-step fix |
 | 📖 **Runbook Generator** | Describe an incident → production-ready runbook you can download as Markdown |
@@ -39,28 +48,28 @@ license: mit
 User Input
     │
     ├── Chat query
-    │       └──▶ Gemini 1.5 Flash + Google Search grounding
+    │       └──▶ Gemini 2.5 Flash
     │                   └──▶ Streamed response
     │
     ├── DevOps command
     │       └──▶ Command Explainer prompt builder
-    │                   └──▶ Gemini 1.5 Flash
+    │                   └──▶ Gemini 2.5 Flash
     │                               └──▶ Flag-by-flag breakdown
     │
     ├── Raw logs
     │       └──▶ Log Analyser prompt builder
-    │                   └──▶ Gemini 1.5 Flash
+    │                   └──▶ Gemini 2.5 Flash
     │                               └──▶ Root cause + fix plan
     │
     └── Incident description
             └──▶ Runbook Generator prompt builder
-                        └──▶ Gemini 1.5 Flash
+                        └──▶ Gemini 2.5 Flash
                                     └──▶ Downloadable .md runbook
 ```
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Run Locally
 
 ### 1. Clone the repo
 ```bash
@@ -87,7 +96,7 @@ cp .env.example .env
 
 ### 5. Run the app
 ```bash
-streamlit run app.py
+python -m streamlit run app.py
 ```
 
 ---
@@ -95,11 +104,9 @@ streamlit run app.py
 ## 🔑 Getting a Free Gemini API Key
 
 1. Go to [Google AI Studio](https://aistudio.google.com/app/apikey)
-2. Sign in with your Google account
-3. Click **Create API Key**
+2. Sign in with your **personal** Google account
+3. Click **Create API Key in new project**
 4. Copy it into your `.env` file
-
-The free tier is generous — no credit card required.
 
 ---
 
@@ -112,7 +119,7 @@ devops-ai-agent/
 ├── .env.example
 ├── src/
 │   ├── __init__.py
-│   └── agent.py                # Gemini integration + Google Search grounding
+│   └── agent.py                # Gemini 2.5 Flash integration
 └── tools/
     ├── __init__.py
     ├── command_explainer.py    # Prompt builder for command breakdowns
@@ -126,9 +133,9 @@ devops-ai-agent/
 
 | Layer | Technology |
 |---|---|
-| LLM | [Google Gemini 1.5 Flash](https://deepmind.google/technologies/gemini/) |
-| Search grounding | Google Search (via Gemini API) |
+| LLM | [Google Gemini 2.5 Flash](https://deepmind.google/technologies/gemini/) |
 | UI | [Streamlit](https://streamlit.io/) |
+| Hosting | [Hugging Face Spaces](https://huggingface.co/spaces) |
 | Auth | Google AI Studio API key |
 
 ---
@@ -138,6 +145,7 @@ devops-ai-agent/
 - [ ] GCP Monitoring integration — pull real logs directly from Cloud Logging
 - [ ] Terraform plan analyser — paste a `terraform plan` output → get risk assessment
 - [ ] Multi-turn incident response mode
+- [ ] MCP server — expose tools as a standard Model Context Protocol server
 - [ ] Slack bot integration
 - [ ] Export runbooks to Confluence
 
